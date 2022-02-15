@@ -1,1 +1,3 @@
-<app-hero #heroCmp [name]="hero" (liked)="onClick()"></app-hero>
+<div *appPermission="['admin', 'agent']">
+  <app-hero #heroCmp [name]="hero" (liked)="onClick()"></app-hero>
+</div>

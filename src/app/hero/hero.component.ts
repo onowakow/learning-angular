@@ -1,27 +1,51 @@
-import { Component, OnInit, Input, EventEmitter, Output, OnChanges, SimpleChanges } from '@angular/core';
-
+import {
+  Component,
+  OnInit,
+  Input,
+  EventEmitter,
+  Output,
+  OnChanges,
+  SimpleChanges,
+} from '@angular/core';
+import { Hero } from '../hero'
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.css']
+  styleUrls: ['./hero.component.css'],
 })
 export class HeroComponent implements OnInit {
-  @Input() name: string = "";
+  @Input() name: string = '';
 
   @Output() liked = new EventEmitter();
 
-  constructor() { }
+  heroes: Hero[] = [
+    {
+      id: 1,
+      name: 'Yarnbo',
+      team: 'Green',
+    },
+    {
+      id: 2,
+      name: 'Xantha',
+      team: 'Red',
+    },
+    {
+      id: 3,
+      name: 'Appleseed',
+      team: 'Yellow'
+    }
+  ];
 
-  ngOnInit(): void {
-  }
+  constructor() {}
+
+  ngOnInit(): void {}
 
   ngOnChanges(changes: SimpleChanges) {
     const hero = changes['name'];
     if (!hero.isFirstChange()) {
       const oldValue = hero.previousValue;
       const newValue = hero.currentValue;
-      console.log(`Hero changed from ${oldValue} to ${newValue}`)
+      console.log(`Hero changed from ${oldValue} to ${newValue}`);
     }
   }
-
 }
