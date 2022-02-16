@@ -7,7 +7,7 @@ import {
   OnChanges,
   SimpleChanges,
 } from '@angular/core';
-import { Hero } from '../hero'
+import { Hero } from '../heroes/hero.model'
 @Component({
   selector: 'app-hero',
   templateUrl: './hero.component.html',
@@ -18,23 +18,7 @@ export class HeroComponent implements OnInit {
 
   @Output() liked = new EventEmitter();
 
-  heroes: Hero[] = [
-    {
-      id: 1,
-      name: 'Yarnbo',
-      team: 'Green',
-    },
-    {
-      id: 2,
-      name: 'Xantha',
-      team: 'Red',
-    },
-    {
-      id: 3,
-      name: 'Appleseed',
-      team: 'Yellow'
-    }
-  ];
+  heroes: Hero[] = [];
 
   constructor() {}
 

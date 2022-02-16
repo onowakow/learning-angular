@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { HeroComponent } from './hero/hero.component';
 import { SortPipe } from './sort.pipe';
 import { PermissionDirective } from './permission.directive';
+import { HeroesModule } from './heroes/heroes.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PermissionDirective } from './permission.directive';
     PermissionDirective,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HeroesModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
