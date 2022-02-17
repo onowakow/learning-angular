@@ -1,11 +1,9 @@
 <h3>My Heroes</h3>
 <ul>
-  <li *ngFor="let hero of heroes">
+  <li *ngFor="let hero of heroes$ | async">
     <span>
       I am hero {{hero.name}} (id: {{hero.id}})
     </span>
   </li>
 </ul>
-<button (click)="add('Thudread')">Add Thudread</button>
-<button (click)="rename(heroes[0])">Rename Bootstomper to Pricezog</button>
-<button (click)="remove(heroes[4])">Delete Piranhaelli</button>
+

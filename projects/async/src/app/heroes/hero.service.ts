@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Hero } from './hero.model';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Observable, throwError, catchError, retry } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +26,14 @@ export class HeroService {
   }
 
   getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]> ('api/heroes');
+    return this.http.get<Hero[]> (this.heroesUrl)
+      .pipe(
+        retry(2),
+        catchError((error: HttpErrorResponse) => {
+          console.error(error);
+          return throwError(error);
+        })
+      )
   }
 
 
