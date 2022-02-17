@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { InMemoryDbService } from 'angular-in-memory-web-api';
-import { Person } from './person';
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +8,14 @@ import { Person } from './person';
 export class BackendAPIService implements InMemoryDbService {
   constructor() { }
   createDb() {
-      let people: Person[] = [
-        {
-          name: "Owen",
-          height: 62
-        },
-        {
-          name: 'Bob',
-          height: 55
-        },
-        {
-          name: 'Jo',
-          height: 60
-        }
+    return {
+      heroes: [
+          { id: 1, name: 'Boothstomper' },
+          { id: 2, name: 'Drogfisher' },
+          { id: 3, name: 'Bloodyllips' },
+          { id: 4, name: 'Mr Bu Moverse' },
+          { id: 5, name: 'Piranhaelli' }
       ]
-      return {people};
+    }
   }
 }

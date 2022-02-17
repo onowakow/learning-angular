@@ -1,20 +1,23 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { KeyLoggerComponent } from './key-logger/key-logger.component';
-import { ApiPracticeComponent } from './api-practice/api-practice.component';
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HeroesModule } from './heroes/heroes.module';
+
 import { BackendAPIService } from './backend-api.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     KeyLoggerComponent,
-    ApiPracticeComponent,
   ],
   imports: [
+    HeroesModule,
     BrowserModule,
+    HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(BackendAPIService)
   ],
   providers: [],
